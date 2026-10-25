@@ -1,0 +1,27 @@
+databases:
+  - name: spamdb
+    plan: free
+    databaseName: spamdb
+    user: spamguard
+
+services:
+  - type: web
+    name: spamguard
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: render
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: DB_HOST
+        fromDatabase: { name: spamdb, property: host }
+      - key: DB_PORT
+        fromDatabase: { name: spamdb, property: port }
+      - key: DB_NAME
+        fromDatabase: { name: spamdb, property: database }
+      - key: DB_USER
+        fromDatabase: { name: spamdb, property: user }
+      - key: DB_PASSWORD
+        fromDatabase: { name: spamdb, property: password }
