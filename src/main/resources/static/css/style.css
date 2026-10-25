@@ -1,0 +1,12 @@
+body { background: #f4f6fb; min-height: 100vh; }
+.brand { font-weight: 700; letter-spacing: .3px; }
+.login-wrap { max-width: 440px; margin: 8vh auto; }
+.card { border: 0; border-radius: 14px; box-shadow: 0 4px 18px rgba(30, 40, 90, .08); }
+.stat { font-size: 2rem; font-weight: 700; }
+.badge-spam { background: #dc3545; }
+.badge-safe { background: #198754; }
+.row-spam { background: #fff5f5; }
+.table-wrap { max-height: 460px; overflow-y: auto; }
+.live-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; background: #adb5bd; margin-right: 6px; }
+.live-dot.on { background: #198754; animation: pulse 1.4s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(25,135,84,.6); } 70% { box-shadow: 0 0 0 9px rgba(25,135,84,0); } 100% { box-shadow: 0 0 0 0 rgba(25,135,84,0); } }
