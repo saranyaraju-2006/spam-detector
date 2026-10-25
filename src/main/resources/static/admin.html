@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpamGuard - Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-danger">
+  <div class="container">
+    <span class="navbar-brand brand">&#128737; SpamGuard Admin</span>
+    <div class="text-white">
+      <span id="who" class="me-3"></span>
+      <button class="btn btn-sm btn-outline-light" onclick="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4">
+  <div class="alert alert-info">Privacy: admins can see accounts and scan history only. Email subjects and message content are never shown to admins.</div>
+
+  <div class="row g-3 mb-3">
+    <div class="col-md-3"><div class="card p-3"><div class="text-muted">Accounts</div><div id="statUsers" class="stat">0</div></div></div>
+    <div class="col-md-3"><div class="card p-3"><div class="text-muted">Live monitoring</div><div id="statLive" class="stat text-success">0</div></div></div>
+    <div class="col-md-3"><div class="card p-3"><div class="text-muted">Total scanned</div><div id="statTotal" class="stat">0</div></div></div>
+    <div class="col-md-3"><div class="card p-3"><div class="text-muted">Spam found</div><div id="statSpam" class="stat text-danger">0</div></div></div>
+  </div>
+
+  <div class="card p-3 mb-3">
+    <h5>Accounts</h5>
+    <div class="table-wrap">
+      <table class="table table-sm align-middle">
+        <thead><tr><th>ID</th><th>Role</th><th>Connected email</th><th>Monitoring</th><th>Scanned</th><th>Spam</th><th>Created</th><th></th></tr></thead>
+        <tbody id="usersBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card p-3">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5 class="mb-0">Scan history <span id="filterLabel" class="badge bg-secondary d-none"></span></h5>
+      <button id="clearFilter" class="btn btn-sm btn-outline-secondary d-none">Show all users</button>
+    </div>
+    <div class="table-wrap">
+      <table class="table table-sm align-middle">
+        <thead><tr><th>Time</th><th>User ID</th><th>Sender</th><th>Source</th><th>Result</th><th>Score</th></tr></thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
